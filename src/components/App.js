@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import AboutMeFormList from './AboutMeFormList';
-import AboutMeEssay from './AboutMeEssay';
+import AboutMeEssay from '../containers/AboutMeEssay';
 
 const okcLogo = 'https://cdn.okccdn.com/media/img/hub/mediakit/okcupid_darkbg_2019.png';
 
@@ -11,7 +11,7 @@ const App = ({ fieldOrder, fieldAnswers }) => (
     <img src={okcLogo} alt="OkCupid Logo" />
     <div className="match-area flex">
       <AboutMeFormList fieldOrder={fieldOrder} />
-      <AboutMeEssay fieldAnswers={fieldAnswers} />
+      <AboutMeEssay />
     </div>
   </div>
 );
