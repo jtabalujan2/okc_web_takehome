@@ -2,12 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const AboutMeEssay = ({ fieldAnswers, isAllFieldsAnswered }) => {
+const AboutMeEssay = ({ fieldOrder, fieldAnswers, isAllFieldsAnswered }) => {
+  const genereateEssay = () => {
+    const result = fieldOrder.map(fieldName => {
+      if(fieldAnswers[fieldName]) {
+        const answer = fieldAnswers[fieldName].answer
+        const sentence = fieldAnswers[fieldName].sentence
+
+        return sentence.replace('$answer', `<b>${answer}</b>`) + " "
+      }
+      return ""
+    })
+  
+    return result.join("")
+  }
+  const html = { __html: genereateEssay() }
+
   return (
   <div className="essay">
     <h2>Your essay text</h2>
-    <pre>{JSON.stringify(fieldAnswers)}</pre>
-    <pre>{isAllFieldsAnswered}</pre>
+    <p dangerouslySetInnerHTML={html}></p>
     {isAllFieldsAnswered && 
       <button>Edit</button>
     }
@@ -15,7 +29,7 @@ const AboutMeEssay = ({ fieldAnswers, isAllFieldsAnswered }) => {
 )};
 
 AboutMeEssay.propTypes = {
-  fieldAnswers: PropTypes.objectOf(PropTypes.string).isRequired,
+  fieldAnswers: PropTypes.objectOf(PropTypes.objectOf(PropTypes.string)).isRequired,
   isAllFieldsAnswered: PropTypes.bool.isRequired
 };
 
