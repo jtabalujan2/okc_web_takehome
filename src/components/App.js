@@ -4,8 +4,11 @@ import PropTypes from 'prop-types';
 import AboutMeFormList from './AboutMeFormList';
 import AboutMeEssay from './AboutMeEssay';
 
+const okcLogo = 'https://cdn.okccdn.com/media/img/hub/mediakit/okcupid_darkbg_2019.png';
+
 const App = ({ fieldOrder, fieldAnswers }) => (
-  <div className="flex justify-center items-center min-h-screen">
+  <div className="flex flex-col justify-center items-center min-h-screen">
+    <img src={okcLogo} alt="OkCupid Logo" />
     <div className="match-area flex">
       <AboutMeFormList fieldOrder={fieldOrder} />
       <AboutMeEssay fieldAnswers={fieldAnswers} />
