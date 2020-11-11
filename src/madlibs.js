@@ -1,3 +1,5 @@
+import {produce} from "immer"
+
 import {
   FIELD_NAMES,
 } from './constants';
@@ -25,7 +27,7 @@ export const INITIAL_STATE = {
 
   fieldAnswers: {},
   essayText: '',
-
+  isAllFieldsAnswered: false,
   counter: 1,
 };
 
@@ -33,23 +35,25 @@ export const INITIAL_STATE = {
 // Reducer
 // ----------------------------------------------------------------------------
 
-export function reducer(state = INITIAL_STATE, action) {
-  switch (action.type) {
+export const reducer = produce((draft = INITIAL_STATE, action) => {
+
+  const { type, payload } = action;
+
+  switch (type) {
     case SUBMIT_FIELD: {
-      return state;
+      draft.fieldAnswers[payload.fieldName] = payload.answer
+      return draft;
     }
 
     case INCREMENT_COUNTER: {
-      return {
-        ...state,
-        counter: state.counter + 1,
-      };
+      draft.counter += 1;
+      return draft;
     }
 
     default:
-      return state;
+      return draft;
   }
-}
+})
 
 
 // Action creators
