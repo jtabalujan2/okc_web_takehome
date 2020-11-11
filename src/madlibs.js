@@ -9,7 +9,10 @@ import {
 // ----------------------------------------------------------------------------
 
 export const SUBMIT_FIELD = 'MADLIBS.SUBMIT_FIELD';
+export const SUBMIT_EDIT = 'MADLIBS.SUBMIT_EDIT'
+export const SUBMIT_RESET = 'MADLIBS.SUBMIT_RESET'
 export const INCREMENT_COUNTER = 'MADLIBS.INCREMENT_COUNTER';
+
 
 
 // Initial state
@@ -28,6 +31,7 @@ export const INITIAL_STATE = {
   fieldAnswers: {},
   essayText: '',
   isAllFieldsAnswered: false,
+  isEdit: false,
   counter: 1,
 };
 
@@ -42,12 +46,29 @@ export const reducer = produce((draft = INITIAL_STATE, action) => {
   switch (type) {
     case SUBMIT_FIELD: {
       draft.fieldAnswers[payload.fieldName] = payload.answer
+      
+      const isAllFieldsComplete = draft.fieldOrder.every(item => draft.fieldAnswers.hasOwnProperty(item));
+
+      if(isAllFieldsComplete) {
+        draft.isAllFieldsAnswered = true;
+      }
+
       return draft;
     }
 
     case INCREMENT_COUNTER: {
       draft.counter += 1;
       return draft;
+    }
+
+    case SUBMIT_EDIT: {
+      draft.isEdit = true;
+      return draft;
+    }
+
+    case SUBMIT_RESET: {
+      draft = INITIAL_STATE;
+      return draft
     }
 
     default:
@@ -65,4 +86,12 @@ export function submitField({ id, answer }) {
 
 export function increment() {
   return { type: INCREMENT_COUNTER };
+}
+
+export function submitEdit() {
+  return {type: SUBMIT_EDIT }
+}
+
+export function submitReset() {
+  return { type: SUBMIT_RESET }
 }
