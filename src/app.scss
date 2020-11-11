@@ -1,0 +1,19 @@
+//Global
+$okc-blue: #084aa4;
+$okc-white: #fafbfd;
+$okc-secondary-white: #f3f5f9;
+$okc-grey: #3d4351;
+
+//Primary Variables:
+$font-color-primary: $okc-grey;
+$background-primary: $okc-blue;
+$app-primary: $okc-white;
+$app-secondary: $okc-secondary-white;
+
+//Utility
+@import "./util";
+
+//Components
+@import "./components/App";
+@import "./components/AboutMeFormList";
+@import "./components/AboutMeEssay";
