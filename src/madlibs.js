@@ -4,6 +4,8 @@ import {
   FIELD_NAMES,
 } from './constants';
 
+import getTextTemplates from "./helpers"
+
 
 // Action types
 // ----------------------------------------------------------------------------
@@ -30,6 +32,7 @@ export const INITIAL_STATE = {
 
   fieldAnswers: {},
   essayText: '',
+  editEssayText: '',
   isAllFieldsAnswered: false,
   isEdit: false,
   counter: 1,
@@ -44,9 +47,18 @@ export const reducer = produce((draft = INITIAL_STATE, action) => {
   const { type, payload } = action;
 
   switch (type) {
+    //You could split this up into separate reducers + actions for a little cleaner code
     case SUBMIT_FIELD: {
-      draft.fieldAnswers[payload.fieldName] = payload.answer
+      //Initialize and adding to object
+      draft.fieldAnswers[payload.fieldName] = {}
+      draft.fieldAnswers[payload.fieldName]['answer'] = payload.answer
+
+      //Adds to object to ensure we don't switch sentences between blurs
+      const randomSentence = getTextTemplates(payload.fieldName)[Math.floor(Math.random() * 5)]
+      draft.fieldAnswers[payload.fieldName]['sentence'] = randomSentence
       
+      //checks if all objects exist
+      //could also just use length to check, but this ensures all keys are equal
       const isAllFieldsComplete = draft.fieldOrder.every(item => draft.fieldAnswers.hasOwnProperty(item));
 
       if(isAllFieldsComplete) {
