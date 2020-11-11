@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import AboutMeInput from './AboutMeInput';
+import AboutMeInput from '../containers/AboutMeInput';
 import { FIELD_NAMES } from '../constants';
 
 const AboutMeFormList = ({ fieldOrder }) => (
