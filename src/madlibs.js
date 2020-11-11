@@ -32,7 +32,6 @@ export const INITIAL_STATE = {
 
   fieldAnswers: {},
   essayText: '',
-  editEssayText: '',
   isAllFieldsAnswered: false,
   isEdit: false,
   counter: 1,
