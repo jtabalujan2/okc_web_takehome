@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { FIELDS } from '../constants';
 
-const AboutMeInput = ({ fieldName, fieldOrder, fieldAnswers, submitField,  }) => {
+const AboutMeInput = ({ fieldName, fieldAnswers, submitField,  }) => {
   const handleSubmit = (e) => {
 
     const payload = {
@@ -12,7 +12,7 @@ const AboutMeInput = ({ fieldName, fieldOrder, fieldAnswers, submitField,  }) =>
     }
 
     //checks if the state is different; if it is, then submit it
-    if(fieldAnswers[fieldName] !== e.target.value && e.target.value !== "") {
+    if(fieldAnswers[fieldName]?.answer !== e.target.value && e.target.value !== "") {
       submitField(payload)
     }
   }
