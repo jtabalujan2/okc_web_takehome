@@ -1,0 +1,45 @@
+//Global Elements
+html {
+   background: $background-primary;
+   font-family: GT America,Helvetica Neue,Helvetica,Arial,sans-serif;
+ }
+ 
+ p {
+   display: block;
+ }
+ 
+ input {
+   padding: .75rem;
+   border: none;
+   background: $okc-white;
+   border-radius: .2rem;
+   display: inline-block;
+ }
+
+ //Util Classes
+
+ .inline-block { display: inline-block; }
+ .inline { display: inline; }
+ .flex { display: flex; }
+ 
+ .flex-col { flex-direction: column; }
+ 
+ .justify-center { justify-content: center; }
+ 
+ .content-center	{ align-content: center;}
+ .content-start	{ align-content: flex-start;}
+ .content-end	{ align-content: flex-end;}
+ .content-between	{ align-content: space-between;}
+ .content-around	{ align-content: space-around;}
+ .content-evenly	{ align-content: space-evenly;}
+ 
+ .items-start	{ align-items: flex-start; }
+ .items-end	{ align-items: flex-end; }
+ .items-center	{ align-items: center; }
+ .items-baseline	{ align-items: baseline; }
+ .items-stretch	{ align-items: stretch; }
+ 
+ .min-h-0	{ min-height: 0; }
+ .min-h-full	{ min-height: 100%; }
+ .min-h-screen	{ min-height: 100vh; }
+ 
