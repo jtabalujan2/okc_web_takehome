@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import { submitField } from '../madlibs';
 
-import AboutMeInput from '../components/AboutMeInput';
+import AboutMeEssay from '../components/AboutMeEssay';
 
 function mapStateToProps(state) {
   return state;
 }
 
 const mapDispatchToProps = {
-  submitField
+  submitField,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AboutMeInput);
+export default connect(mapStateToProps, mapDispatchToProps)(AboutMeEssay);
