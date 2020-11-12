@@ -14,6 +14,7 @@ export const SUBMIT_FIELD = 'MADLIBS.SUBMIT_FIELD';
 export const SUBMIT_EDIT = 'MADLIBS.SUBMIT_EDIT'
 export const SUBMIT_RESET = 'MADLIBS.SUBMIT_RESET'
 export const INCREMENT_COUNTER = 'MADLIBS.INCREMENT_COUNTER';
+export const EDIT_ESSAY = 'MADLIBS.EDIT_ESSAY'
 
 
 
@@ -87,6 +88,11 @@ export const reducer = produce((draft = INITIAL_STATE, action) => {
       return draft
     }
 
+    case EDIT_ESSAY: {
+      draft.essayText = payload.essay
+      return draft;
+    }
+
     default:
       return draft;
   }
@@ -105,9 +111,13 @@ export function increment() {
 }
 
 export function submitEdit() {
-  return {type: SUBMIT_EDIT }
+  return { type: SUBMIT_EDIT };
 }
 
 export function submitReset() {
   return { type: SUBMIT_RESET }
+}
+
+export function editEssay({ essay }) {
+  return { type: EDIT_ESSAY, payload: { essay } }
 }

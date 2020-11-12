@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { submitField } from '../madlibs';
+import { submitEdit } from '../madlibs';
 
 import AboutMeFormEssay from '../components/AboutMeFormEssay';
 
@@ -8,7 +8,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  submitField,
+  submitEdit,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AboutMeFormEssay);

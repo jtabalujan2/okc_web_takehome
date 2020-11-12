@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 
 const AboutMeFormEssay = ({ fieldOrder, fieldAnswers, isAllFieldsAnswered, submitEdit }) => {
-  const handleEditSubmit = (e) => {
-    e.preventDefault();
+  const handleEditClick = (e) => {
     submitEdit();
   }
 
@@ -29,14 +28,16 @@ const AboutMeFormEssay = ({ fieldOrder, fieldAnswers, isAllFieldsAnswered, submi
     <h2>Your essay text</h2>
     <p dangerouslySetInnerHTML={html}></p>
     {isAllFieldsAnswered && 
-      <button onSubmit={handleEditSubmit}>Edit</button>
+      <button onClick={handleEditClick}>Edit</button>
     }
   </div>
 )};
 
 AboutMeFormEssay.propTypes = {
+  fieldOrder: PropTypes.arrayOf(PropTypes.string).isRequired,
   fieldAnswers: PropTypes.objectOf(PropTypes.objectOf(PropTypes.string)).isRequired,
-  isAllFieldsAnswered: PropTypes.bool.isRequired
+  isAllFieldsAnswered: PropTypes.bool.isRequired,
+  submitEdit: PropTypes.func.isRequired,
 };
 
 export default AboutMeFormEssay;
