@@ -5,7 +5,7 @@ import AboutMeFormEssay from '../containers/AboutMeFormEssay';
 
 
 const AboutMeForm = () => (
-  <div className="match-area flex">
+  <div className="flex">
       <AboutMeFormList/>
       <AboutMeFormEssay />
   </div>
