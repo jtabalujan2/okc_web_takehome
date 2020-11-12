@@ -74,6 +74,11 @@ export const reducer = produce((draft = INITIAL_STATE, action) => {
 
     case SUBMIT_EDIT: {
       draft.isEdit = true;
+
+      //generating essay text
+      const essayText = draft.fieldOrder.map(fieldName => draft.fieldAnswers[fieldName].sentence.replace('$answer', draft.fieldAnswers[fieldName].answer))
+      draft.essayText = essayText.join("")
+
       return draft;
     }
 
