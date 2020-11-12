@@ -3,6 +3,20 @@ html {
    background: $background-primary;
    font-family: GT America,Helvetica Neue,Helvetica,Arial,sans-serif;
  }
+
+ button {
+  cursor: pointer;
+  background: $button-success;
+  color: white;
+  border-radius: 5%;
+  border: none;
+  padding: 1rem 2.5rem;
+  transition: 0.3s;
+
+  &:hover {
+     background: $button-success-hover;
+  }
+}
  
  p {
    display: block;
