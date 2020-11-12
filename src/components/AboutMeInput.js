@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { FIELDS } from '../constants';
 
-const AboutMeInput = ({ fieldName, fieldAnswers, submitField,  }) => {
+const AboutMeInput = ({ fieldName, fieldAnswers, submitField }) => {
   const handleSubmit = (e) => {
 
     const payload = {
