@@ -2,6 +2,8 @@
 $okc-blue: #084aa4;
 $okc-white: #fafbfd;
 $okc-secondary-white: #f3f5f9;
+$okc-green:  #00d57f;
+$okc-green-darker:  #00b66d;
 $okc-grey: #3d4351;
 
 //Primary Variables:
@@ -9,11 +11,14 @@ $font-color-primary: $okc-grey;
 $background-primary: $okc-blue;
 $app-primary: $okc-white;
 $app-secondary: $okc-secondary-white;
+$button-success: $okc-green;
+$button-success-hover: $okc-green-darker;
 
 //Utility
 @import "./util";
 
 //Components
 @import "./components/App";
+@import "./components/AboutMeForm";
 @import "./components/AboutMeFormList";
-@import "./components/AboutMeEssay";
+@import "./components/AboutMeFormEssay";
