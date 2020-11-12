@@ -8,16 +8,5 @@
 
    button {
       margin-top: 5rem;
-      cursor: pointer;
-      background: $button-success;
-      color: white;
-      border-radius: 5%;
-      border: none;
-      padding: 1rem 2.5rem;
-      transition: 0.3s;
-
-      &:hover {
-         background: $button-success-hover;
-      }
    }
 }
