@@ -1,0 +1,23 @@
+.essay {
+   width: 50%;
+   background: $app-primary;
+   border-radius: 0 2% 2% 0;
+   padding: 1.75rem;
+   line-height: 1.5rem;
+   color: $font-color-primary;
+
+   button {
+      margin-top: 5rem;
+      cursor: pointer;
+      background: $button-success;
+      color: white;
+      border-radius: 5%;
+      border: none;
+      padding: 1rem 2.5rem;
+      transition: 0.3s;
+
+      &:hover {
+         background: $button-success-hover;
+      }
+   }
+}

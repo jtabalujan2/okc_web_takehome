@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const AboutMeEssay = ({ fieldOrder, fieldAnswers, isAllFieldsAnswered }) => {
+const AboutMeFormEssay = ({ fieldOrder, fieldAnswers, isAllFieldsAnswered, submitEdit }) => {
+  const handleEditSubmit = (e) => {
+    e.preventDefault();
+    submitEdit();
+  }
+
   const genereateEssay = () => {
     const result = fieldOrder.map(fieldName => {
       if(fieldAnswers[fieldName]) {
@@ -16,6 +21,7 @@ const AboutMeEssay = ({ fieldOrder, fieldAnswers, isAllFieldsAnswered }) => {
   
     return result.join("")
   }
+
   const html = { __html: genereateEssay() }
 
   return (
@@ -23,14 +29,14 @@ const AboutMeEssay = ({ fieldOrder, fieldAnswers, isAllFieldsAnswered }) => {
     <h2>Your essay text</h2>
     <p dangerouslySetInnerHTML={html}></p>
     {isAllFieldsAnswered && 
-      <button>Edit</button>
+      <button onSubmit={handleEditSubmit}>Edit</button>
     }
   </div>
 )};
 
-AboutMeEssay.propTypes = {
+AboutMeFormEssay.propTypes = {
   fieldAnswers: PropTypes.objectOf(PropTypes.objectOf(PropTypes.string)).isRequired,
   isAllFieldsAnswered: PropTypes.bool.isRequired
 };
 
-export default AboutMeEssay;
+export default AboutMeFormEssay;
