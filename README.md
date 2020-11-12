@@ -27,6 +27,7 @@
   - Could have a more elegant solution, but with time request, it was best to just be simple and use dangerouslySetInnerHTML
 
 - I didn't finish this in the expected 4 hours, but I have mostly been working in Vue and VueX which is a slightly different approach to redux (a lot less verbose imo)
+- Worked a lot faster once I remembered how Redux + React interact and what patterns to implement
 
 ## Improvements
 - Use inline css to allow for single location
